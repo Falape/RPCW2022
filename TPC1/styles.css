@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    color: white;
+    background-image: url("img/BackGround.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+table, th, td {
+  color: black;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th {
+  background-color: #10D1D1;
+}
+
+td {
+  background-color: #96D4D4;
+}
+
+p {
+  font-size:20px;
+}
+
+a{
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1{
+  font-size:70px;
+}
+
+h2{
+  font-size:40px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
