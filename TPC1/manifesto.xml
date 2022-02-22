@@ -1,0 +1,20 @@
+
+<manifesto>
+	<title>Jacarés</title>
+	<date>22/02/2022</date>
+	<autor>Filipe Emanuel Santos Fernandes</autor>
+	<UC>Representação e Processamento de Conhecimento na Web</UC>
+	<resumo>
+		Este TPC teve como objetivo relembrar a estrutura e funcionalidades do HTML e CSS.
+    O tema escolhido foi o Jacaré
+	</resumo>
+	<files>
+		<pasta name="img">
+			<file>alligator1.jpg</file>
+			<file>alligator2.jpg</file>
+			<file>BackGround.jpeg</file>
+		</pasta>
+		<file>index.html</file>
+		<file>styles.css</file>
+	</files>
+</manifesto>
