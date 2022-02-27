@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cinema-Filme</title>
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <p>Year: {{year}}</p>
+    <h3>Cast:</h3>
+    <ul>
+      {% for n in atores %}
+      <li>{{n}}</li>
+      {% endfor %}
+    </ul>
+    <h3>Genres:</h3>
+    <ul>
+      {% for n in generos %}
+      <li>{{n}}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

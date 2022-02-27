@@ -1,0 +1,18 @@
+<!-- Index filmes-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cinema-{{name}}</title>
+  </head>
+  <body>
+    {% for key in dic %}
+    <h3>{{key}}</h3>
+    <ul>
+      {% for n in dic[key] %}
+      <li>{{n}}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </body>
+</html>
