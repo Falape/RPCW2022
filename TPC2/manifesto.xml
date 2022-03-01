@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC2: Servidor Web</titulo>
+    <data>2022-02-15</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web que fosse capaz de responder
+    com páginas web solicitadas através de links URL.</p>
+    <p>Para isto foi nos dado um dataset (em JSON) sobre filmes, onde cada filme tinha o seu nome, ano,
+    atores e géneros.</p>
+    <p>Foi então feito o parse desse dataset em python
+      <xref>
+      <url>Parser/jsonToHtml.py</url>
+      <texto>jsonToHtml.py</texto>
+    </xref>
+    aqui é feita a interpretação do JSON e são criadas as páginas HTML para cada ator, género, ano e filme
+    todas interligadas através de URLs. Isto é em qualquer página que tenha refência a um filme, autor, ano
+    ou género é possível aceder à sua página.</p>
+    <p>São aqui também criadas as páginas index.html para os filmes, atores, anos e géneros, separadas e ordenadas 
+    por ordem alfabética.</p>
+    <p>Para a criação das páginas HTML foi utilizado o Jinja2 com os
+      <xref>
+        <url>Template</url>
+        <texto>Templates</texto>
+      </xref>
+    <p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>Parser/cinemaATP.json</url>
+      <texto>Dataset Filmes</texto>
+    </resultado>
+    <resultado>
+      <url>Parser/writeTemplates.py</url>
+      <texto>Script em python que cria o texto HTML</texto>
+    </resultado>
+    <resultado>
+      <url>Parser/jsonToHtml.py</url>
+      <texto>Parser do dataser, que cria as páginas HTML</texto>
+    </resultado>
+    <resultado>
+      <url>Template/entityTemplate.html</url>
+      <texto>Template HTML para as páginas do ator,ano e género</texto>
+    </resultado>
+    <resultado>
+      <url>Template/filmeTemplate.html</url>
+      <texto>Template HTML para a página do filme</texto>
+    </resultado>
+    <resultado>
+      <url>Template/indexTemplate.html</url>
+      <texto>Template HTML para as páginas index (Filmes, atores anos e géneros)</texto>
+    </resultado>
+    <resultado>
+      <url>servidor.js</url>
+      <texto>Servidor web</texto>
+    </resultado>
+  </resultados>
+</doc>
