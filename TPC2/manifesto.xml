@@ -26,7 +26,7 @@ aqui é feita a interpretação do JSON e são criadas as páginas HTML para cad
 todas interligadas através de URLs. Isto é, qualquer página que tenha referência a um filme, autor, ano
 ou género é possível aceder à sua página.</p>
     <p>Para isto basta ir à pasta Parser e correr o comando: "python3 jsonToHtml.py cinemaATP.json". Este irá criar
-fora da pasta Parser as pastas Filmes, Ators, Generos e Years.(Este processo demora alguns cerca de 1 minuto pois irão ser 
+fora da pasta Parser as pastas Filmes, Ators, Generos e Years.(Este processo demora cerca de 1 minuto pois irão ser 
     criadas 11797 páginas html)</p>
     <p>Em cada uma destas pastas está também a página index.html para os filmes, atores, anos e géneros, separadas e ordenadas 
 por ordem alfabética.</p>
