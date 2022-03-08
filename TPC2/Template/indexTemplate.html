@@ -4,11 +4,20 @@
   <head>
     <meta charset="utf-8">
     <title>Cinema-{{name}}</title>
+    <link rel="stylesheet" href="style.css">
   </head>
+  <nav>
+      {% for n in listaNav %}
+      <div class="background link-container">
+        <a class="nav-entry" {{n}} </a>
+      </div>
+      {% endfor %}
+  </nav>
   <body>
+    <h1>{{name}}</h1>
     {% for key in dic %}
     <h3>{{key}}</h3>
-    <ul>
+    <ul class="columas">
       {% for n in dic[key] %}
       <li>{{n}}</li>
       {% endfor %}

@@ -24,8 +24,13 @@ def nameFormat(name):
     return name
 
 def makeURL(path, name):
-    namelink=nameFormat(name)
-    tm = Template("<a href=http://localhost:7777/{{path}}/{{namelink}}.html>{{name}}</a>")
+    if name=='index':
+        namelink='index'
+        name=path
+        tm = Template("href=http://localhost:7777/{{path}}/{{namelink}}.html>{{name}}")
+    else:
+        namelink=nameFormat(name)
+        tm = Template("<a href=http://localhost:7777/{{path}}/{{namelink}}.html>{{name}}</a>")
     return tm.render(path=path, namelink=namelink,name=name)
 
 def makeURLfromList(path, lista):
@@ -51,13 +56,22 @@ atores = {} #index.html
 generos = {}
 anos = {}
 ator = {} #pagina ator
+listaNavBar = []
 
 filecounter = 0
 #genero = {} #pagina genero
 #ano = {} #pagina ano
 
 pathfilmes = 'Filmes'
+pathAtores = "Actors"
+pathGeneros = "Generos"
+pathYears = "Years"
+for n in [pathfilmes,pathAtores,pathGeneros,pathYears]:
+    listaNavBar.append(makeURL(n,'index'))
+
 makeDir('../'+pathfilmes)
+
+os.system("cp ../Template/style.css ../" + pathfilmes)
 
 for filme in jdata:
     aux = checkFstLetter(filme['title'])
@@ -88,48 +102,44 @@ for filme in jdata:
         generos.setdefault(genere,[])
         generos[genere].append(filme['title'])
 
-
-    #print(type(filme['year']))
-    #print(writeTemplates.filme(filme['title'], makeURL('Year',str(filme['year'])), makeURLfromList('Actors',filme['cast']), makeURLfromList('Generos',filme['genres'])))
-
     try:
         with open('../'+pathfilmes + '/' + nameFormat(filme['title']) +'.html', 'w') as f:
             filecounter = filecounter + 1
-            f.write(writeTemplates.filme(filme['title'], makeURL('Years',str(filme['year'])), makeURLfromList('Actors',filme['cast']), makeURLfromList('Generos',filme['genres'])))
+            f.write(writeTemplates.filme(filme['title'], listaNavBar, makeURL('Years',str(filme['year'])), makeURLfromList('Actors',filme['cast']), makeURLfromList('Generos',filme['genres'])))
     except FileNotFoundError:
             print("Diretoria não existe: " + pathfilmes + '/' + nameFormat(filme['title']) +'.html')
 
-pathAtores = "Actors"
-makeDir('../'+pathAtores)
+makeDir('../' + pathAtores)
+os.system("cp ../Template/style.css ../" + pathAtores)
+
 for a in ator:
-    #print(writeTemplates.entity(a,makeURLfromList(pathfilmes,ator[a])))
 
     try:
         with open('../' + pathAtores + '/' + nameFormat(a) +'.html', 'w') as f:
             filecounter = filecounter + 1
-            f.write(writeTemplates.entity(a,makeURLfromList(pathfilmes,sorted(ator[a]))))
+            f.write(writeTemplates.entity(a, listaNavBar, makeURLfromList(pathfilmes,sorted(ator[a]))))
     except FileNotFoundError:
             print("Diretoria não existe: " + pathAtores + '/' + nameFormat(a) +'.html')
 
-pathGeneros = "Generos"
 makeDir('../'+pathGeneros)
+os.system("cp ../Template/style.css ../" + pathGeneros)
 for a in generos:
     #print(writeTemplates.entity(a,makeURLfromList(pathfilmes,sorted(generos[a]))))
     try:
         with open('../'+pathGeneros + '/' + nameFormat(a) +'.html', 'w') as f:
             filecounter = filecounter + 1
-            f.write(writeTemplates.entity(a,makeURLfromList(pathfilmes,sorted(generos[a]))))
+            f.write(writeTemplates.entity(a, listaNavBar, makeURLfromList(pathfilmes,sorted(generos[a]))))
     except FileNotFoundError:
             print("Diretoria não existe: " + pathGeneros + '/' + nameFormat(a) +'.html')
 
-pathYears = "Years"
 makeDir('../'+pathYears)
+os.system("cp ../Template/style.css ../" + pathYears)
 for a in anos:
     #print(writeTemplates.entity(a,makeURLfromList(pathfilmes,sorted(anos[a]))))
     try:
         with open('../'+pathYears + '/' + str(a) +'.html', 'w') as f:
             filecounter = filecounter + 1
-            f.write(writeTemplates.entity(a,makeURLfromList(pathfilmes,sorted(anos[a]))))
+            f.write(writeTemplates.entity(a, listaNavBar, makeURLfromList(pathfilmes,sorted(anos[a]))))
     except FileNotFoundError:
             print("Diretoria não existe: " + pathYears + '/' + nameFormat(a) +'.html')
 
@@ -142,26 +152,26 @@ for a in anos:
 
 aux={}
 for a in sorted(filmes):
-    aux[a]=makeURLfromList('Filmes',sorted(filmes[a]))
+    aux[a]=makeURLfromList(pathfilmes,sorted(filmes[a]))
 
 filmes=aux
 
 
 aux={}
 for a in sorted(anos):
-    aux[a]=makeURLfromList('Filmes',sorted(anos[a]))
+    aux[a]=makeURLfromList(pathfilmes,sorted(anos[a]))
 
 anos=aux
 
 aux={}
 for a in sorted(generos):
-    aux[a]=makeURLfromList('Filmes',sorted(generos[a]))
+    aux[a]=makeURLfromList(pathfilmes,sorted(generos[a]))
 
 generos=aux
 
 aux={}
 for a in sorted(atores):
-    aux[a]=makeURLfromList('Filmes',sorted(atores[a]))
+    aux[a]=makeURLfromList(pathAtores,sorted(atores[a]))
 
 atores=aux
 
@@ -169,7 +179,7 @@ atores=aux
 try:
     with open('../'+pathfilmes + '/index.html', 'w') as f:
         filecounter = filecounter + 1
-        f.write(writeTemplates.index('Filmes',filmes))
+        f.write(writeTemplates.index('Filmes', listaNavBar, filmes))
 except FileNotFoundError:
         print("Diretoria não existe: " + pathfilmes + '/index.html')
 
@@ -178,7 +188,7 @@ except FileNotFoundError:
 try:
     with open('../'+pathYears + '/index.html', 'w') as f:
         filecounter = filecounter + 1
-        f.write(writeTemplates.index('Anos',anos))
+        f.write(writeTemplates.index('Anos', listaNavBar, anos))
 except FileNotFoundError:
         print("Diretoria não existe: " + pathYears + '/index.html')
 
@@ -186,14 +196,14 @@ except FileNotFoundError:
 try:
     with open('../'+pathGeneros + '/index.html', 'w') as f:
         filecounter = filecounter + 1
-        f.write(writeTemplates.index('Generos',generos))
+        f.write(writeTemplates.index('Generos', listaNavBar, generos))
 except FileNotFoundError:
         print("Diretoria não existe: " + pathGeneros + '/index.html')
 
 try:
     with open('../'+pathAtores + '/index.html', 'w') as f:
         filecounter = filecounter + 1
-        f.write(writeTemplates.index('Actors',atores))
+        f.write(writeTemplates.index('Actors', listaNavBar, atores))
 except FileNotFoundError:
         print("Diretoria não existe: " + pathAtores + '/index.html')
 
