@@ -5,11 +5,6 @@ const axios = require('axios')
 const jsonServer = 'http://localhost:3000/'
 const listingDoor = 7777;
 
-function generateMainPage() {
-    page = "<body>Exemplo</body>"
-    return page
-}
-
 //realiza get ao json-server
 function jsonServerGet(path) {
     console.log("o path: " + jsonServer + path)
@@ -44,7 +39,7 @@ function makeHtmlTable(entidade, data) {
         console.log(instrumentosAlunos)
     } 
     if (entidade == 'alunos') {
-        while (jsonServerGet('instrumentos')
+        jsonServerGet('instrumentos')
             .then((data) => {
                 console.log(data)
                 populateData(data)
@@ -52,9 +47,7 @@ function makeHtmlTable(entidade, data) {
             })
             .catch(function (error) {
                 console.log(error);
-            })){
-
-            }
+            })
     }
     */
     htmlTable.push("<table>")
@@ -128,10 +121,10 @@ myserver = http.createServer(function (req, res) {
     myurl = myurl.substring(1)  //para remover / do início
     console.log(myurl)
     myurl = myurl.split('/')
-    console.log(myurl)
+    console.log(myurl[0])
     console.log("com size: " + myurl.length)
 
-    if (myurl[myurl.length - 1] == '') {
+    if (myurl[myurl.length - 1] == ''&& myurl.length>1) {
         myurl.pop();
     }
 
@@ -139,8 +132,9 @@ myserver = http.createServer(function (req, res) {
     switch (myurl.length) {
         case 1: //para a main, para as outras páginas temos de fazer o get para depois fazer o html
             if (myurl[0] == '') {
-
-                res.write(generateMainPage())
+                var page = navbar()
+                res.write(page.join('\n'))
+                res.end()
             } else {
 
                 jsonServerGet(myurl)

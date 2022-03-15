@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC3: Servidor Web, utilizando API de dados json-server</titulo>
+    <data>2022-03-15</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web que fosse capaz de responder
+com páginas web solicitadas através de links URL, sendo que o servidor tinha de pedir os dados a uma API de dados.</p>
+    <p>Para isto, foi-nos dado um dataset (em JSON) sobre uma escola de música e é utilizado o json-server para operar
+como server .</p>
+    <p>O servidor web consegue apresentar páginas com tabelas para os alunos,instrumentos e cursos e páginas individuais
+para cada aluno, curso e instrumento.</p>
+    <p>As páginas estão interligadas entre si através de URLs, tanto nas tabelas como apartir da navbar</p>
+    <p>Para correr o servidor é preciso ter o json-server a correr,
+      <xref>
+      <url>db.json</url>
+      <texto>db.json</texto>
+    </xref>
+na porta 3000.</p>
+    <p>Para correr o servidor basta utilizar o comando 'node serverEscola.js'.</p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>db.json</url>
+      <texto>Dataset Escola de Música</texto>
+    </resultado>
+    <resultado>
+      <url>serverEscola.js</url>
+      <texto>Servidor Web</texto>
+    </resultado>
+  </resultados>
+</doc>
