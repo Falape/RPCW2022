@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC4: Servidor Web dinâmico, To Do list</titulo>
+    <data>2022-03-22</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web dinâmico utilizando Node.js e json-server para API de dados.</p>
+    <p>O servidor web tem como objetivo gerir tarefas, isto é consultar, editar, concluir e eliminar tarefas.</p>
+    <p>Todos estes objetivos foram conseguidos.</p>
+    <p>A comunicação com a API de dados é feita através do axios.</p>
+    <p>Para a opçção de editar tarefas é utilizado um formúlário pop-up(extra).</p>
+    <p>Para correr o servidor é preciso ter o json-server a correr,
+      <xref>
+      <url>notes.json</url>
+      <texto>notes.json</texto>
+    </xref>
+na porta 3000.</p>
+    <p>Para correr o servidor basta correr 'npm install' para que sejam instaladas as dependências
+    e depois utilizar 'npm run run' ou  'node server.js' para correr em mdo dev 'npm run dev'.</p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>server.js</url>
+      <texto>Servidor Web</texto>
+    </resultado>
+    <resultado>
+      <url>notes.json</url>
+      <texto>Ficheiro json que Terá a função de Data base</texto>
+    </resultado>
+    <resultado>
+      <url>makepage.js</url>
+      <texto>Ficheiro utilizado para a criação da página HTML</texto>
+    </resultado>
+    <resultado>
+      <url>static.js</url>
+      <texto>Dado pelo Professor, para fornecer conteúdos estáticos (neste casa ficheiro CSS)</texto>
+    </resultado>
+    <resultado>
+      <url>Public/mini-dark.css</url>
+      <texto>Stylesheet</texto>
+    </resultado>
+  </resultados>
+</doc>

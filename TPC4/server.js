@@ -8,7 +8,7 @@ var { parse } = require('querystring')
 
 //Variáveis Globais
 
-const jsonServer = 'http://localhost:3001/notes';
+const jsonServer = 'http://localhost:3000/notes';
 const listingDoor = 7777;
 const serverURL = 'http://localhost:' + listingDoor;
 const toDoTag = "?Estado=todo";
@@ -113,10 +113,14 @@ var noteServer = http.createServer(function (req, res) {
                                 resp['data']['Estado'] = "done"
                                 edit(id[1], resp['data'])
                                     .then(respo => {
-                                        console.log("Edita")
+                                        //axios.get(serverURL)
+
+    
+
                                         /*res.writeHead(301, {
                                             Location: serverURL
                                         })
+                                        res.end()
                                         axios.defaults.baseURL = serverURL + '/'
                                         axios({
                                             url: '/' //=>  http://wwww.example.com/cats
