@@ -174,3 +174,20 @@ return page;
 }
 
 exports.mainPage = mainPage
+
+function pageVoltar(name){
+    return  `<html>
+<head>
+    <title>ToDo List</title>
+    <meta charset="utf-8" />
+    <!--link rel="icon" href="favicon.png" /-->
+    <link rel="stylesheet" href="mini-dark.css" />
+</head>
+<body>
+    <h2>${name}</h2>
+    <p><a href="/">voltar</a></p>
+</body>`
+    
+}
+
+exports.pageVoltar = pageVoltar

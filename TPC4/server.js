@@ -13,6 +13,10 @@ const listingDoor = 7777;
 const serverURL = 'http://localhost:' + listingDoor;
 const toDoTag = "?Estado=todo";
 const doneTag = "?Estado=done";
+const flag = {};
+const setFlag = (data) => {
+    flag['value']=data
+} 
 
 //Funções Auxiliares
 function remove(id) {
@@ -91,8 +95,7 @@ var noteServer = http.createServer(function (req, res) {
                             })
                             res.end()*/
                             res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
-                            res.write("<p>Removido</p>")
-                            res.write('<p><a href="/">voltar</a></p>')
+                            res.write(page.pageVoltar('Removido'))
                             res.end()
                         })
                             .catch(erro => {
@@ -115,7 +118,9 @@ var noteServer = http.createServer(function (req, res) {
                                     .then(respo => {
                                         //axios.get(serverURL)
 
-    
+                                        res.writeHead(303, {
+                                            Location: '/'
+                                        }).end()
 
                                         /*res.writeHead(301, {
                                             Location: serverURL
@@ -125,11 +130,10 @@ var noteServer = http.createServer(function (req, res) {
                                         axios({
                                             url: '/' //=>  http://wwww.example.com/cats
                                         })
-                                        res.end()*/
-                                        res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
-                                        res.write("<p>Passado para done</p>")
-                                        res.write('<p><a href="/">voltar</a></p>')
                                         res.end()
+                                        res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
+                                        res.write(page.pageVoltar('Passado para done'))
+                                        res.end()*/
                                     })
                                     .catch(erro => {
                                         res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
@@ -157,20 +161,23 @@ var noteServer = http.createServer(function (req, res) {
                         axios.all([addEntry(resultado)])
                             .then(axios.spread(function (respPost) {
                                 //console.log(todo.data, done.data)
+                                res.writeHead(303, {
+                                    Location: '/'
+                                }).end()
                                 /*
-                                res.writeHead(301, {
-                                    Location: serverURL + '/'
-                                })
                                 axios.defaults.baseURL = serverURL
                                 axios({
                                     url: '/' //=>  http://wwww.example.com/cats
                                 })
                                 res.end()*/
 
+                                /*
                                 res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
                                 res.write("<p>Nota adicionda </p>")
                                 res.write('<p><a href="/">voltar</a></p>')
-                                res.end()
+                                res.end()*/
+
+                                
                             }))
                             .catch(function (erro) {
                                 res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
@@ -186,18 +193,22 @@ var noteServer = http.createServer(function (req, res) {
                             edit(resultado['id'], resultado)
                                 .then(resp => {
                                     console.log("Edita")
-                                    /*res.writeHead(301, {
+                                    
+                                    res.writeHead(303, {
                                         Location: serverURL
-                                    })
+                                    }).end()
+                                    /*
                                     axios.defaults.baseURL = serverURL + '/'
                                     axios({
                                         url: '/' //=>  http://wwww.example.com/cats
                                     })
                                     res.end()*/
+                                    /*
                                     res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
                                     res.write("<p>Editado!</p>")
                                     res.write('<p><a href="/">voltar</a></p>')
                                     res.end()
+                                    */
                                 })
                                 .catch(erro => {
                                     res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
