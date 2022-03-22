@@ -25,7 +25,8 @@
     </xref>
 na porta 3000.</p>
     <p>Para correr o servidor basta correr 'npm install' para que sejam instaladas as dependências
-    e depois utilizar 'npm run run' ou  'node server.js' para correr em mdo dev 'npm run dev'.</p>
+    e depois utilizar 'npm run run' ou  'node server.js' para correr em mdo dev 'npm run dev' 
+    mas irá causar o refresh do server sempre que haja uma alteração nos ficheiros.</p>
   </resumo>
   <resultados>
     <resultado>
