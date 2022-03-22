@@ -86,17 +86,19 @@ var noteServer = http.createServer(function (req, res) {
                         const regexID = /\/:([0-9]+)\/delete/;
                         const id = req.url.match(regexID)
                         remove(id[1]).then(resp => {
-                            /*res.writeHead(301, {
-                                Location: serverURL
-                            })
+                            
+                            res.writeHead(303, {
+                                Location: '/'
+                            }).end()
+                            /*
                             axios.defaults.baseURL = serverURL + '/'
                             axios({
                                 url: '/' //=>  http://wwww.example.com/cats
                             })
-                            res.end()*/
+                            res.end()
                             res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
                             res.write(page.pageVoltar('Removido'))
-                            res.end()
+                            res.end()*/
                         })
                             .catch(erro => {
                                 res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })

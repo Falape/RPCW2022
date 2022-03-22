@@ -15,9 +15,11 @@
   <resumo>
     <p>Este TPC consistia em desenvolver um servidor web dinâmico utilizando Node.js e json-server para API de dados.</p>
     <p>O servidor web tem como objetivo gerir tarefas, isto é consultar, editar, concluir e eliminar tarefas.</p>
+    <p>E tem de seguir uma estrutura Single Page Application</p>
     <p>Todos estes objetivos foram conseguidos.</p>
     <p>A comunicação com a API de dados é feita através do axios.</p>
-    <p>Para a opçção de editar tarefas é utilizado um formúlário pop-up(extra).</p>
+    <p>Para a opçção de editar tarefas é utilizado um formúlário pop-up e é feito no fim de cada request 
+    redirecionamento para a main page, garantindo assim a SPA(extra).</p>
     <p>Para correr o servidor é preciso ter o json-server a correr,
       <xref>
       <url>notes.json</url>
