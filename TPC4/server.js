@@ -49,7 +49,7 @@ function recuperaInfo(request, callback) {
 }
 
 var noteServer = http.createServer(function (req, res) {
-    console.log("URL que chega: "+req.url)
+    console.log("URL que chega: " + req.url)
     if (static.recursoEstatico(req)) {
         static.sirvoRecursoEstatico(req, res)
     }
@@ -122,7 +122,7 @@ var noteServer = http.createServer(function (req, res) {
                                 })
                                 .catch(erro => {
                                     res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
-                                    res.write("<p>Erro no Edit: " + erro + '</p>')
+                                    res.write("<p>Erro ao fazer Done: " + erro + '</p>')
                                     res.write('<p><a href="/">voltar</a></p>')
                                     res.end()
                                 })
@@ -161,7 +161,36 @@ var noteServer = http.createServer(function (req, res) {
                                 res.end()
                             })
                     })
-                }
+                } else
+                    if (req.url == '/editEntry') {
+                        recuperaInfo(req, resultado => {
+                            resultado['Estado'] = 'todo'
+                            edit(resultado['id'], resultado)
+                                .then(resp => {
+                                    console.log("Edita")
+                                    /*res.writeHead(301, {
+                                        Location: serverURL
+                                    })
+                                    axios.defaults.baseURL = serverURL + '/'
+                                    axios({
+                                        url: '/' //=>  http://wwww.example.com/cats
+                                    })
+                                    res.end()*/
+                                    res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
+                                    res.write("<p>Editado!</p>")
+                                    res.write('<p><a href="/">voltar</a></p>')
+                                    res.end()
+                                })
+                                .catch(erro => {
+                                    res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
+                                    res.write("<p>Erro no Edit: " + erro + '</p>')
+                                    res.write('<p><a href="/">voltar</a></p>')
+                                    res.end()
+                                })
+                        })
+                    }
+
+
                 break
         }
     }

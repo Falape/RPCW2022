@@ -120,7 +120,7 @@ function mainPage(todo, done, serverURL) {
 <div class="form-popup" id="myForm">
     <form class="container" action="/editEntry" method="POST">
         <div class="row">
-            <input class="col-sm-12 Id" style="display:none;" type="text" name="Id">
+            <input class="col-sm-12 Id" style="display:none;" type="text" name="id">
 
             <label><b>Ator</b></label>
             <input class="col-sm-12 Nome" type="text" placeholder="Nome" name="Nome">
@@ -129,7 +129,7 @@ function mainPage(todo, done, serverURL) {
             <input class="col-sm-12 Descricao" type="text" placeholder="Tarefa" name="Descricao">
 
             <label><b>Tipo de Tarefa</b></label>
-            <input class="col-sm-12 Tipo" type="text" placeholder="tipo" name="tipo">
+            <input class="col-sm-12 Tipo" type="text" placeholder="Tipo" name="Tipo">
 
             <div class="col-sm">
                 <label><b>Data de início</b></label>
