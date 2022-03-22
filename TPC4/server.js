@@ -23,6 +23,10 @@ function getToDo() {
     return axios.get(jsonServer + toDoTag);
 }
 
+function getEntry(id) {
+    return axios.get(jsonServer + '/' + id);
+}
+
 function getDone() {
     return axios.get(jsonServer + doneTag);
 }
@@ -103,23 +107,33 @@ var noteServer = http.createServer(function (req, res) {
                             console.log("Done ")
                             const regexID = /\/:([0-9]+)\/done/;
                             const id = req.url.match(regexID)
-                            console.log(id)
-                            edit(id[1], { "Estado": "done" })
-                                .then(resp => {
-                                    console.log("Passa a done")
-                                    /*res.writeHead(301, {
-                                        Location: serverURL
+                            getEntry(id[1]).then(resp => {
+
+                                console.log(resp['data']['Estado'])
+                                resp['data']['Estado'] = "done"
+                                edit(id[1], resp['data'])
+                                    .then(respo => {
+                                        console.log("Edita")
+                                        /*res.writeHead(301, {
+                                            Location: serverURL
+                                        })
+                                        axios.defaults.baseURL = serverURL + '/'
+                                        axios({
+                                            url: '/' //=>  http://wwww.example.com/cats
+                                        })
+                                        res.end()*/
+                                        res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
+                                        res.write("<p>Passado para done</p>")
+                                        res.write('<p><a href="/">voltar</a></p>')
+                                        res.end()
                                     })
-                                    axios.defaults.baseURL = serverURL + '/'
-                                    axios({
-                                        url: '/' //=>  http://wwww.example.com/cats
+                                    .catch(erro => {
+                                        res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
+                                        res.write("<p>Erro ao passar para done: " + erro + '</p>')
+                                        res.write('<p><a href="/">voltar</a></p>')
+                                        res.end()
                                     })
-                                    res.end()*/
-                                    res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
-                                    res.write("<p>Passado para done</p>")
-                                    res.write('<p><a href="/">voltar</a></p>')
-                                    res.end()
-                                })
+                            })
                                 .catch(erro => {
                                     res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' })
                                     res.write("<p>Erro ao fazer Done: " + erro + '</p>')
