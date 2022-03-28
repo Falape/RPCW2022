@@ -1,18 +1,15 @@
 extends layout
 
 block content
-  h1 Lista de musicas
+  h1 Provincia: #{prov}
   table 
     tr 
         th Identificador
         th Título
-        th Província
         th Local
-    each a in musicas
+    each a in provincia
         tr
             td
              a(href="/musicas/"+a.id)= a.id 
             td= a.tit
-            td
-                a(href="/musicas/prov/"+a.prov)= a.prov
             td= a.local

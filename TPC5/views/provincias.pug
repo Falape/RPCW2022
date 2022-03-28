@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Lista de Províncias
+ 
+  ul
+  each a in provincias
+    li 
+        a(href="/musicas/prov/"+a)= a
+        
+    

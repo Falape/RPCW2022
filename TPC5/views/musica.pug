@@ -1,19 +1,24 @@
 extends layout
 
 block content
-  h1 Lista de musicas
-  h2 22 de Março 2022
+  h1 Musica Nr: #{id}
   table 
-    tr 
-        th Identificador
-        th Título
-        th Província
-        th Local
-    each a in musicas
-        tr
-            td
-             a(href="/musicas/"+a.id)= a.id 
-            td= a.tit
-            td
-                a(href="/musicas/prov/"+a.prov)= a.prov
-            td= a.local
+    dl 
+        dt 
+            b Título
+        dd= musica.tit 
+        dt 
+            b Província
+        dd
+            a(href="/musicas/prov/"+musica.prov)= musica.prov
+        dt 
+            b Local
+        dd= musica.local
+        dt 
+            b File
+        dd= musica.file
+        dt 
+            b Duração
+        dd= musica.duracao
+        
+   
