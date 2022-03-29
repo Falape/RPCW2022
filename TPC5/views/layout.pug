@@ -2,13 +2,52 @@ doctype html
 html
   head
     title= Músicas
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/style.css')
+
   nav 
     h2 Músicas por
-    h3
-      a(href="http://localhost:3002/musicas")= "ID"
-    h3
-      a(href="http://localhost:3002/musicas/prov")= "Provincia"
-    
+    div(class='row')
+      h3
+        a(href="http://localhost:3002/musicas")= "ID"
+      h3
+        a(href="http://localhost:3002/musicas/prov")= "Provincia"
+
+    script. 
+      function openForm() {
+        document.querySelector("div.form-popup").hidden = false
+        console.log(document.querySelector("div.form-popup").hidden);
+      }
+
+    div.action
+      button(class="button primary" onclick= 'openForm()') Add
+
+    div(hidden=true).form-popup
+      form(name="addMusic" action="http://localhost:3002/musicas/newMusic" ,method="post")
+        div(class="row").input
+          span.label Título
+            input(class="col-sm" type="text" name="tit")
+          span.label Província
+            input(class="col-sm" type="text" name="prov")
+          span.label Local
+            input(class="col-sm" type="text" name="local")
+          span.label File
+            input(class="col-sm" type="text" name="file")
+          span.label Duração
+            input(class="col-sm" type="text" name="duracao")
+
+        div.actions
+          input(class="button tertiary" type="submit" value="add")
+
+      script. 
+          function closeForm() {
+            document.querySelector("div.form-popup").hidden = true
+            console.log(document.querySelector("div.form-popup").hidden);
+          }
+
+      div.actions
+        button(class="secondary" onClick= "closeForm()") Close
+
   body
-    block content
+  block content
+
+
