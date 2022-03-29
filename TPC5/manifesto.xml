@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC5: Servidor Web, Repositório de músicas</titulo>
+    <data>2022-03-29</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web dinâmico utilizando Expressjs, uma framework web para Nodejs e json-server para API de dados.</p>
+    <p>O servidor web irá servir como repositório de músicas.</p>
+    <p>O servidor mostra ao utilizador todas as músicas existentes na base dados, ou filtradas por provincia.</p>
+    <p>Para cada música é possível aceder à sua página e cada uma destas páginas está hiperligada à sua província.</p>
+    <p>Todos estes objetivos foram conseguidos.</p>
+    <p>É ainda possível adicionar músicas através de um formulário pop-up (extra).</p>
+    <p>A comunicação com a API de dados é feita através do axios.</p>
+    <p>Para correr o servidor é preciso ter o json-server a correr,
+      <xref>
+      <url>arq-son-EVO.json</url>
+      <texto>arq-son-EVO.json</texto>
+    </xref>
+na porta 3000.</p>
+    <p>Para correr o servidor basta correr 'npm install' para que sejam instaladas as dependências
+    e depois utilizar 'npm start' para correr o servidor, que irá correr na porta 4000</p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>arq-son-EVO.json</url>
+      <texto>Ficheiro json que terá a função de Data Base</texto>
+    </resultado>
+    <resultado>
+      <url>addID.py</url>
+      <texto>Script python para adicionar id's as músicas do JSON</texto>
+    </resultado>  
+  </resultados>
+</doc>

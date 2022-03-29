@@ -8,9 +8,9 @@ html
     h2 Músicas por
     div(class='row')
       h3
-        a(href="http://localhost:3002/musicas")= "ID"
+        a(href="http://localhost:4000/musicas")= "ID"
       h3
-        a(href="http://localhost:3002/musicas/prov")= "Provincia"
+        a(href="http://localhost:4000/musicas/prov")= "Provincia"
 
     script. 
       function openForm() {
@@ -27,7 +27,7 @@ html
       button(class="button primary" onclick= 'openForm()') Add
 
     div(hidden=true).form-popup
-      form(name="addMusic" action="http://localhost:3002/musicas/newMusic" ,method="post")
+      form(name="addMusic" action="http://localhost:4000/musicas/newMusic" ,method="post")
         div(class="row").input
           span.label Título
             input(class="col-sm" type="text" name="tit")
