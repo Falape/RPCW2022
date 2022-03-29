@@ -17,6 +17,11 @@ html
         document.querySelector("div.form-popup").hidden = false
         console.log(document.querySelector("div.form-popup").hidden);
       }
+     
+      function closeForm() {
+        document.querySelector("div.form-popup").hidden = true
+        console.log(document.querySelector("div.form-popup").hidden);
+      }
 
     div.action
       button(class="button primary" onclick= 'openForm()') Add
@@ -37,12 +42,6 @@ html
 
         div.actions
           input(class="button tertiary" type="submit" value="add")
-
-      script. 
-          function closeForm() {
-            document.querySelector("div.form-popup").hidden = true
-            console.log(document.querySelector("div.form-popup").hidden);
-          }
 
       div.actions
         button(class="secondary" onClick= "closeForm()") Close

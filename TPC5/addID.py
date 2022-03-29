@@ -5,7 +5,7 @@ f = open("arq-son-EVO.json", 'r')
 
 data = json.load(f)
 
-id = 0
+id = 1
 
 for value in data['musicas']:
     value['id']=id

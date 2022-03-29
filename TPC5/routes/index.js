@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios')
 
+var APImusicas = "http://localhost:3000/musicas"
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  axios.get("http://localhost:3000/musicas")
+  axios.get(APImusicas)
     .then(response => {
       var lista = response.data
       res.render('musicas', { musicas: lista });
@@ -16,7 +18,7 @@ router.get('/', function (req, res, next) {
 
 
 router.get('/musicas', function (req, res, next) {
-  axios.get("http://localhost:3000/musicas")
+  axios.get(APImusicas)
     .then(response => {
       var lista = response.data
       res.render('musicas', { musicas: lista });
@@ -27,7 +29,7 @@ router.get('/musicas', function (req, res, next) {
 });
 
 router.get('/musicas/prov', function (req, res, next) {
-  axios.get("http://localhost:3000/musicas")
+  axios.get(APImusicas)
     .then(response => {
       var data = response.data.map(d => d.prov);
       let cleanData = [];
@@ -45,7 +47,7 @@ router.get('/musicas/prov', function (req, res, next) {
 });
 
 router.get('/musicas/:id', function (req, res, next) {
-  axios.get("http://localhost:3000/musicas/" + req.params.id)
+  axios.get(APImusicas+"/" + req.params.id)
     .then(response => {
       var data = response.data
       res.render('musica', { id: req.params.id, musica: data });
@@ -57,7 +59,7 @@ router.get('/musicas/:id', function (req, res, next) {
 
 
 router.get('/musicas/prov/:prov', function (req, res, next) {
-  axios.get("http://localhost:3000/musicas?prov=" + req.params.prov)
+  axios.get(APImusicas+"?prov=" + req.params.prov)
     .then(response => {
       var lista = response.data
       res.render('provincia', { prov: req.params.prov, provincia: lista });
@@ -69,12 +71,7 @@ router.get('/musicas/prov/:prov', function (req, res, next) {
 
 
 router.post('/musicas/newMusic', function (req, res) {
-  /*console.log(req.body.tit);
-  console.log(req.body.prov);
-  console.log(req.body.local);
-  console.log(req.body.file);
-  console.log(req.body.duracao);
-  */
+
   var data = {
     'tit': req.body.tit,
     'prov': req.body.prov,
@@ -83,7 +80,7 @@ router.post('/musicas/newMusic', function (req, res) {
     'duracao': req.body.duracao
   }
   console.log(data)
-  axios.post("http://localhost:3000/musicas", data)
+  axios.post(APImusicas, data)
     .then(response => {
       console.log("Adicionada música")
     })
