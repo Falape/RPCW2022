@@ -58,12 +58,12 @@ router.get('/remove/:id', (req, res) => {
 })
 
 router.get('/home/falape/Projetos/RPCW2022/TPC6/fileStore/:file', (req, res) => {
-  console.log(req.url)
-  const r = fs.createReadStream(req.url) 
-  const ps = new stream.PassThrough() // <---- this makes a trick with stream error handling
+  //stream de imagens
+  const r = fs.createReadStream(req.url)  //path da imagem
+  const ps = new stream.PassThrough() 
   stream.pipeline(
    r,
-   ps, // <---- this makes a trick with stream error handling
+   ps, 
    (err) => {
     if (err) {
       res.render('error', { error: err })

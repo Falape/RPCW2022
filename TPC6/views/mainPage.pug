@@ -9,6 +9,7 @@ block content
   h1= title
   table 
     tr 
+      th
       th Nome
       th Tamanho
       th Extensão
@@ -17,6 +18,8 @@ block content
       th
     each a in imagens
       tr 
+        td
+          img(src=a.path  width="30" height="30")
         td
           b= a.nome
         td= a.tamanho
