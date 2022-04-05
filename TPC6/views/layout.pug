@@ -6,11 +6,15 @@ html
   nav
     h2 File Upload
 
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+
     form(name="addImg" action="http://localhost:4000/addImg" ,method="post", enctype="multipart/form-data")
       span.label 
         b Select file
         input(class="col-sm" type="file" name="fileSelect")
       
         input(class="button tertiary" type="submit" value="add")
+
   body
     block content

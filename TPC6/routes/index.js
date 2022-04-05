@@ -11,6 +11,8 @@ var upload = multer({dest: 'uploads'})
 //filesystem
 var fs = require('fs')
 
+//image stream
+const stream = require('stream')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -21,8 +23,13 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/addImg', upload.single('fileSelect'), (req, res) => {
-  let oldPath = __dirname + '/../' + req.file.path
-  let newPath = __dirname + '/../fileStore/' + req.file.originalname
+  let dir = __dirname.split('/');
+  dir.pop();
+  dir = dir.join('/');
+  console.log(dir);
+
+  let oldPath = dir + '/' + req.file.path
+  let newPath = dir + '/fileStore/' + req.file.originalname
 
   //para dar "store do file" no fileStore
   fs.rename(oldPath, newPath, error => {
@@ -49,5 +56,22 @@ router.get('/remove/:id', (req, res) => {
     .then(res.redirect('/'))
     .catch(error => res.render('error', { error: error }))
 })
+
+router.get('/home/falape/Projetos/RPCW2022/TPC6/fileStore/:file', (req, res) => {
+  console.log(req.url)
+  const r = fs.createReadStream(req.url) 
+  const ps = new stream.PassThrough() // <---- this makes a trick with stream error handling
+  stream.pipeline(
+   r,
+   ps, // <---- this makes a trick with stream error handling
+   (err) => {
+    if (err) {
+      res.render('error', { error: err })
+    }
+  })
+  ps.pipe(res) 
+})
+
+
 
 module.exports = router;
