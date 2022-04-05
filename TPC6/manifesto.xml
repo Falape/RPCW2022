@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC6: Servidor Web, Repositório de imagens</titulo>
+    <data>2022-04-05</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web dinâmico que tivesse a função de repositório de imagens, utilizando 
+Expressjs, uma framework web para Nodejs.</p>
+    <p>O servidor segue uma estrutura SPA, sendo a página constituída por um formulário para a submissão de imagens, e por uma 
+tabela para apresentar as imagens já existentes no repositório.</p>
+    <p>Como base de dados é utilizado o mongoDB, deste modo é necessário ter o mongo a correr antes de inicializar o servidor</p>
+    <p>Na página, para cada imagem existe uma espécie de favicon(apenas uma amostra da imagem)e botões com as opções de remover e 
+visualizar(irá aparecer como pop-up).</p>
+    <p>Todos os objetivos foram conseguidos.</p>
+    <p>Como extras temos a utlização de mongoDB e a visualização da imagem num pop-up, tendo sido utlizada jquery e bootstrap 
+para alcançar estas funcionalidades.</p>
+    <p>Para correr o servidor, basta correr 'npm install' para que sejam instaladas as dependências
+    e depois utilizar 'npm start' para correr o servidor, que irá correr na porta 4000</p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>routes/index.js</url>
+      <texto>Rotas para os URL</texto>
+    </resultado>
+    <resultado>
+      <url>fileStore</url>
+      <texto>Pasta onde irão ficar guardadas as imagens depois de submetidas</texto>
+    </resultado>
+    <resultado>
+      <url>models/images.js</url>
+      <texto>Modelo do schema para Base Dados</texto>
+    </resultado>
+    <resultado>
+      <url>controller/images.js</url>
+      <texto>Metodos para interagir com a Base Dados</texto>
+    </resultado>
+    <resultado>
+      <url>public/stylesheets</url>
+      <texto>stylesheet</texto>
+    </resultado>
+    <resultado>
+      <url>views/layout.pug</url>
+      <texto>layout html onde está também incormporado o formulário de submissão</texto>
+    </resultado>  
+    <resultado>
+      <url>views/mainPage.pug</url>
+      <texto>layout html da tabela de imagens</texto>
+    </resultado>
+  </resultados>
+</doc>
