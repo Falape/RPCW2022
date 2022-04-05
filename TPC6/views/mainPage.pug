@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  table 
+    tr 
+        th Nome
+        th Tamanho
+        th Extensão
+        th Data
+        th
+    each a in imagens
+        tr 
+            td
+              b= a.nome
+            td= a.tamanho
+            td= a.extensao
+            td= a.data
+            td 
+              div.actions
+                button(class="secondary" onclick="window.location.href = 'http://localhost:4000/remove/"+ a.id +"'") Delete

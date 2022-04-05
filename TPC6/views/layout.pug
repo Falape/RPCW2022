@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet' href='/stylesheets/style.css')
+  nav
+    h2 File Upload
+
+    form(name="addImg" action="http://localhost:4000/addImg" ,method="post", enctype="multipart/form-data")
+      span.label 
+        b Select file
+        input(class="col-sm" type="file" name="fileSelect")
+      
+        input(class="button tertiary" type="submit" value="add")
+  body
+    block content
