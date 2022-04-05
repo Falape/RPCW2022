@@ -16,8 +16,7 @@ var fs = require('fs')
 router.get('/', function (req, res, next) {
   
   Images.list()
-    .then(data => {console.log(data); 
-                  res.render('mainPage', { imagens: data })})
+    .then(data => res.render('mainPage', { imagens: data }))
     .catch(error => res.render('error', { error: error }))
 });
 
@@ -35,19 +34,19 @@ router.post('/addImg', upload.single('fileSelect'), (req, res) => {
   var img = {
     nome: req.file.originalname,
     tamanho: req.file.size,
-    extensao: req.file.type,
+    extensao: req.file.mimetype,
     data: d,
     path: newPath
   }
 
   Images.insert(img)
-    .then(data => res.redirect('/'))
+    .then(res.redirect('/'))
     .catch(error => res.render('error', { error: error }))
 })
 
 router.get('/remove/:id', (req, res) => {
   Images.delete(req.params.id)
-    .then(data => res.redirect('/'))
+    .then(res.redirect('/'))
     .catch(error => res.render('error', { error: error }))
 })
 
