@@ -19,14 +19,14 @@ block content
     each a in imagens
       tr 
         td
-          img(src=a.path  width="30" height="30")
+          input(type="image" src=a.path  width="40" height="40" data-toggle="modal" data-target="#myModal" onclick='givepath("'+a.path+'")')
         td
           b= a.nome
         td= a.tamanho
         td= a.extensao
         td= a.data
         td
-          button(type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" onclick='givepath("'+a.path+'")') Ver
+          button(type="button" class="primary" data-toggle="modal" data-target="#myModal" onclick='givepath("'+a.path+'")') Ver
         td 
           div.actions
             button(class="secondary" onclick="window.location.href = 'http://localhost:4000/remove/"+ a.id +"'") Delete
@@ -38,4 +38,4 @@ block content
         div(class="modal-body")
           img(id="muda" src="" width="300" height="300")
         div(class="modal-footer")
-          button(type="button" class="btn btn-default" data-dismiss="modal") Close
+          button(type="button" data-dismiss="modal") Close
