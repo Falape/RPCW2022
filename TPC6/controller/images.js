@@ -4,17 +4,10 @@ const student = require('../models/images')
 var Images = require('../models/images')
 
 module.exports.list = () => {
-   
-    var imgs = Images
+    return Images
         .find()  //procurar parametros
         .sort()
         .exec()
-    console.log(imgs)
-    return imgs
-    /*Images
-        .find()  //procurar parametros
-        .sort()
-        .exec()*/
 }
 
 module.exports.lookUp = id => {   //transformar id que recebo e transformo num id do mongo

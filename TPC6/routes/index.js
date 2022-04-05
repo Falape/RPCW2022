@@ -14,9 +14,7 @@ var fs = require('fs')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  //var date = new Date().toISOString().substring(0.16)
-  //var files = jsonfile.readFileSync('')
-  console.log("Entra aqui")
+  
   Images.list()
     .then(data => {console.log(data); 
                   res.render('mainPage', { imagens: data })})
@@ -27,14 +25,12 @@ router.post('/addImg', upload.single('fileSelect'), (req, res) => {
   let oldPath = __dirname + '/../' + req.file.path
   let newPath = __dirname + '/../fileStore/' + req.file.originalname
 
-  console.log('teste1')
   //para dar "store do file" no fileStore
   fs.rename(oldPath, newPath, error => {
     if (error) throw res.render('error', { error: error })
   })
 
   var d = new Date().toISOString().substring(0.16)
-  //var files = jsonfile.readFileSync('./dbFiles.json')
 
   var img = {
     nome: req.file.originalname,
@@ -43,8 +39,6 @@ router.post('/addImg', upload.single('fileSelect'), (req, res) => {
     data: d,
     path: newPath
   }
-
-  console.log(img)
 
   Images.insert(img)
     .then(data => res.redirect('/'))
