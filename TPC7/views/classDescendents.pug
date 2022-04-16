@@ -1,0 +1,20 @@
+extends classPage
+
+block descendentes
+  div(class="container")
+    h3 Descendentes
+    if descendente.length == 0
+      div(class="container laranja")
+        h4 Não existem descendentes
+    else
+      table
+        tr
+          th Código
+          th Título
+        each a in descendente
+          tr 
+            td
+              a(href='/' + a.codigo)=a.codigo
+            td= a.titulo
+  
+  block relacionados

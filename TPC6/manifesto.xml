@@ -18,8 +18,8 @@ Expressjs, uma framework web para Nodejs.</p>
     <p>O servidor segue uma estrutura SPA, sendo a página constituída por um formulário para a submissão de imagens, e por uma 
 tabela para apresentar as imagens já existentes no repositório.</p>
     <p>Como base de dados é utilizado o mongoDB, deste modo é necessário ter o mongo a correr antes de inicializar o servidor</p>
-    <p>Na página, para cada imagem existe uma espécie de favico(uma amostra da imagem que é clicavél e mostra a imagem num pop-up) 
-e botões com as opções de remover e visualizar (irá aparecer como pop-up).</p>
+    <p>Na página, para cada imagem existe uma espécie de favicon(uma amostra da imagem que é clicavél e mostra a imagem num pop-up) 
+e botões com as opções de remover e visualizar (irá aparecer como pop-up), a geração desdes pop-ups é dinâmica.</p>
     <p>Todos os objetivos foram conseguidos.</p>
     <p>Como extras temos a utlização de mongoDB e a visualização da imagem num pop-up, tendo sido utlizada jquery e bootstrap 
 para alcançar estas funcionalidades.</p>

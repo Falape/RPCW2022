@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 CLAV
+
+  h2 Descrição 
+
+  div(class="container")
+    table
+      tr
+        th Código
+        th Título
+      each a in dataClass1
+        tr 
+          td
+            a(href='/' + a.codigo)=a.codigo
+          td= a.titulo

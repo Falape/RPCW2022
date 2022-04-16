@@ -1,0 +1,22 @@
+extends classDescendents
+
+block relacionados
+  div(class="container")
+    h3 Relacionados
+      if relacionado.length == 0
+        div(class="container laranja")
+        h4 Não existem documentos relacionados!
+      else
+        div(class="container")
+          table 
+            tr
+             th Relação
+             th Código
+             th Título
+
+            each a in relacionado
+              tr 
+                td= a.idRel
+                td
+                  a(href='/' + a.codigo)=a.codigo
+                td= a.titulo

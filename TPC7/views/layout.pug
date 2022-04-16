@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  nav 
+    h1=Título
+  nav 
+    button  
+      a(href='/') Home
+    if parente!=''
+      button  
+        a(href='/' + parente.codigo)= parente.codigo
+  body
+    block content
