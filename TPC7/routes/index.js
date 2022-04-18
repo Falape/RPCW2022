@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
       'Authorization': `apikey ${apikey}`
     }
   }).then( resp => {
+    console.log("parente = ''")
     res.render('mainPage', {parente:'', dataClass1: resp.data })
   }).catch( err => {
     res.render('error', { title: "error", message: err })

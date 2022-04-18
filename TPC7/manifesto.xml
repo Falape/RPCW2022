@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+  <meta>
+    <titulo>TPC7: Servidor Web, Repositório de imagens</titulo>
+    <data>2022-04-18</data>
+    <autor>
+      <id>A83996</id>
+      <nome>Filipe Emanuel Santos Fernandes</nome>
+    </autor>
+    <uc>
+      <sigla>RPCW2022</sigla>
+      <nome>Representação e Processamento de Conhecimento na Web</nome>
+    </uc>
+  </meta>
+  <resumo>
+    <p>Este TPC consistia em desenvolver um servidor web que fosse capaz de apresentar o catálogo dos Processos da Administração Pública Portuguesa, utilizando 
+Expressjs, uma framework web para Nodejs.</p>
+    <p>O servidor terá de fazer pedidos à API de dados do projeto CLAV, para conseguir acesso aos dados dos vários processos e funções.</p>
+    <p>Na página inicial temos uma lista de todas as funções disponíveis (código-título) sendo que ao clicar numa delas, está é direcionada para a página da respectiva classe.</p>
+    <p>Para a página de uma classe temos a sua descrição, o seu antecessor, e uma lista dos seus descendentes.</p>
+    <p>Para as páginas de uma classe de nível 3 temos as mesmas funcionalidades que página de classe e ainda uma lista dos processos relacionados a esse processo.</p>
+    <p>Em cada página, à exceção da página inicial, existem 2 botões, um que permite voltar à página inicial e outro que permite voltar ao antecessor desse processo.</p>
+  </resumo>
+  <resultados>
+    <resultado>
+      <url>routes/index.js</url>
+      <texto>Rotas para os URL e ondesão realizados os pedidos à API</texto>
+    </resultado>
+    <resultado>
+      <url>public/stylesheets</url>
+      <texto>stylesheet</texto>
+    </resultado>
+    <resultado>
+      <url>views/</url>
+      <texto>Pasta onde se encontram os ficheiros geradores das páginas html</texto>
+    </resultado>  
+  </resultados>
+</doc>
