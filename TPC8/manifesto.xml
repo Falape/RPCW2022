@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
   <meta>
-    <titulo>TPC5: Servidor Web, Repositório de músicas</titulo>
-    <data>2022-03-29</data>
+    <titulo>TPC8: Página WEB que realiza pedidos a API de dados</titulo>
+    <data>2022-04-26</data>
     <autor>
       <id>A83996</id>
       <nome>Filipe Emanuel Santos Fernandes</nome>
@@ -13,30 +13,28 @@
     </uc>
   </meta>
   <resumo>
-    <p>Este TPC consistia em desenvolver um servidor web dinâmico utilizando Expressjs, uma framework web para Nodejs e json-server para API de dados.</p>
-    <p>O servidor web irá servir como repositório de músicas.</p>
-    <p>O servidor mostra ao utilizador todas as músicas existentes na base dados, ou filtradas por provincia.</p>
-    <p>Para cada música é possível aceder à sua página e cada uma destas páginas está hiperligada à sua província.</p>
-    <p>Todos estes objetivos foram conseguidos.</p>
-    <p>É ainda possível adicionar músicas através de um formulário pop-up (extra).</p>
-    <p>A comunicação com a API de dados é feita através do axios.</p>
-    <p>Para correr o servidor é preciso ter o json-server a correr,
-      <xref>
-      <url>arq-son-EVO.json</url>
-      <texto>arq-son-EVO.json</texto>
-    </xref>
-na porta 3000.</p>
-    <p>Para correr o servidor basta correr 'npm install' para que sejam instaladas as dependências
-    e depois utilizar 'npm start' para correr o servidor, que irá correr na porta 4000</p>
+    <p>Este TPC consistia em desenvolver uma página web, utilizando HTML e Jquery e desenvolver uma API de dados para os servir à página web utilizando ExpressJS e MongoDB.</p>
+    <p>O objetivo era permiti a adição de paragrafos a uma lista e depois permitir a sua edição ou remoção.</p>
+    <p>Este TPC ficou com um nível de desenvolvimento muito baixo em relação aos TPCs anteriores.</p>
+    <p>Apens foi realizada a API de dados, a adição de paragrafos e a sua remoção</p>
+    <p>Ficando em falta a sua edição de poderia ser feita da mesma forma que o TPC6(atrvez de um pop-up)</p>
   </resumo>
   <resultados>
     <resultado>
-      <url>arq-son-EVO.json</url>
-      <texto>Ficheiro json que terá a função de Data Base</texto>
+      <url>MainPage.html</url>
+      <texto>Página principal HTML</texto>
     </resultado>
     <resultado>
-      <url>addID.py</url>
-      <texto>Script python para adicionar id's as músicas do JSON</texto>
+      <url>myPara.js</url>
+      <texto>Scripts Jquery</texto>
     </resultado>  
+    <resultado>
+      <url>routes/index.js</url>
+      <texto>Routeador para os pedidos de dados</texto>
+    </resultado>
+    <resultado>
+      <url>public/stylesheets/style.css</url>
+      <texto>StyleSheet</texto>
+    </resultado> 
   </resultados>
 </doc>
